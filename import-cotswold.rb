@@ -140,7 +140,11 @@ FasterCSV.foreach(ARGV[0]) do |row|
     # both types of file.  Even more annoyingly, directorates aren't
     # specified any more.
     if row.include? 'Vendor Name'
-      service_name_column = 'Service Area'
+      if row.include? 'Service Area'
+        service_name_column = 'Service Area'
+      else
+        service_name_column = 'Service'
+      end
       vendor_name_column = 'Vendor Name'
       date_column = 'Payment Date'
 
